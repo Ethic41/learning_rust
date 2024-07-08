@@ -8,6 +8,17 @@
  */
 
 
+ // The `derive` attribute automatically creates the implementation
+// required to make this `struct` printable with `fmt::Debug`.
+#[derive(Debug)]
+struct Structure(i32);
+
+// Put a `Structure` inside of the structure `Deep`. Make it printable
+// also.
+#[derive(Debug)]
+struct Deep(Structure);
+
+
 fn main(){
     println!("{} days", 31);
 
