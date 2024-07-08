@@ -26,4 +26,15 @@ fn main(){
     println!("{number:0<8}", number=18);
     println!("{number:0>5}", number=185);
 
+    // Printing with `{:?}` is similar to with `{}`.
+    println!("{:?} months in a year.", 12);
+    println!("{1:?} {0:?} is the {actor:?} name.", "Slater", "Christian", actor="actor's");
+
+    // `Structure` is printable!
+    println!("Now {:?} will print!", Structure(3));
+
+    // The problem with `derive` is there is no control over how
+    // the results look. What if I want this to just show a `7`?
+    println!("Now {:?} will print!", Deep(Structure(7)));
+
 }
