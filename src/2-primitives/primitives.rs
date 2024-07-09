@@ -56,4 +56,21 @@ fn main(){
     // Use underscores to improve readability!
     println!("One million is written as {}", 1_000_000u32);
 
+    // Tuples
+    let long_tuple = (1u8, 2u16, 3u32, 'a', "ball", true);
+
+    // extracting values from tuples
+    println!("first value: {}", long_tuple.0);
+    println!("Second value: {}", long_tuple.1);
+    println!("Fifth value: {}", long_tuple.4);
+
+
+}
+
+// Tuples
+
+fn reverse(pair: (i32, bool)) -> (bool, i32){
+    let (int_param, bool_param) = pair;
+
+    (bool_param, int_param)
 }
