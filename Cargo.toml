@@ -2,9 +2,3 @@
 name = "learning_rust"
 version = "0.1.0"
 edition = "2021"
-
-[dependencies]
-
-[lib]
-name = "learning_rust"
-path = "src/lib.rs"

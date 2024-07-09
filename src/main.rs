@@ -7,6 +7,12 @@
  */
 
 
-fn main(){
-    println!("hello world!");
+
+ fn main() {
+    println!("Hello, world!");
+    let mut mutable: i32 = 25;
+    println!("{}", mutable);
+    mutable = 23;
+    println!("{}", mutable);
+
 }
