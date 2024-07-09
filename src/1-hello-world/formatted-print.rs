@@ -2,7 +2,7 @@
  * =====[Bismillahirrahmanirrahim]=====
  * -*- coding: utf-8 -*-
  * @Date    : 2024-07-07 11:24:51
- * @Author  : Your Name (you@example.org)
+ * @Author  : Dahir Muhammad Dahir (dahirmuhammad3@gmail.com)
  * @Link    : link
  * @Version : 1.0.0
  */
