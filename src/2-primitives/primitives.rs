@@ -6,6 +6,8 @@
  * @Version : 1.0.0
  */
 
+ use std::mem;
+
 
 fn main(){
     // variables can be type annotated
@@ -63,6 +65,24 @@ fn main(){
     println!("first value: {}", long_tuple.0);
     println!("Second value: {}", long_tuple.1);
     println!("Fifth value: {}", long_tuple.4);
+
+    // Arrays and Slices
+
+    // Fixed-sized
+    let xs: [i32; 5] = [1, 2, 3, 4, 5];
+
+    // All elements can be initialized to the same value
+    let ys: [i32; 500] = [0; 500];
+
+    // Indexing starts at 0
+    println!("First element of the array: {}", xs[0]);
+    println!("Second element of the array: {}", xs[1]);
+
+    // `len` returns the count of element in the array.
+    println!("Number of elements in the array: {}", xs.len());
+
+    // Arrays are stack allocated
+    println!("Array occupies {} bytes", mem::size_of_val(&xs));
 
 
 }
