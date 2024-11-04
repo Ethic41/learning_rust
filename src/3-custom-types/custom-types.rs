@@ -119,8 +119,41 @@ fn main() {
     inspect(load);
     inspect(unload);
 
+    // We can refer to each variant via its alias, not its long and inconvenient name.
+    let x = Operations::Add;
+
+    println!("{}", x.run(5, 5));
+
+    // Explicitly `use` each name so they are available without manual scoping.
+    use crate::Stage::{Beginner, Advanced};
+    use crate::Role::*;
+
+    // Equivalent to `Stage::Beginner`
+    let stage = Beginner;
+    // Equivalent to `Role::Student`
+    let role = Student;
+
+    match stage {
+        // Note the lack of scoping because of the explicit `use` above.
+        Beginner => println!("Beginners are starting their learning journey!"),
+        Advanced => println!("Advanced students are pushing their limits!"),
+    }
+
+    match role {
+        // Note the lack of scoping because of the explicit `use` above.
+        Student => println!("Students are acquiring knowledge!"),
+        Teacher => println!("Teachers are spreading knowledge!"),
+    }
+
+    // `enum` can be cast as integers.
+    println!("Zero is {}", Number::Zero as i32);
+    println!("One is {}", Number::One as i32);
+
+    println!("Roses are #{:06x}", Color::Red as i32);
+    println!("Violets are #{:06x}", Color::Blue as i32);
 }
 
+// Define a structure named `WebEvent`
 enum WebEvent {
     // An `enum` variant may either be `unit-like`,
     PageLoad,
@@ -147,3 +180,47 @@ fn inspect(event: WebEvent) {
         },
     }
 }
+
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Subtract,
+}
+
+// Creates a type alias
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
+impl Operations {
+    fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Subtract => x - y,
+        }
+    }
+}
+
+
+enum Stage {
+    Beginner,
+    Advanced,
+}
+
+enum Role {
+    Student,
+    Teacher,
+}
+
+// enum with implicit discriminator (starts at 0)
+enum Number {
+    Zero,
+    One,
+    Two,
+}
+
+// enum with explicit discriminator
+enum Color {
+    Red = 0xff0000,
+    Green = 0x00ff00,
+    Blue = 0x0000ff,
+}
+
+
