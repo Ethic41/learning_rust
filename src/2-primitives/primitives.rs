@@ -29,7 +29,7 @@ fn main(){
     let mut mutable: i32 = 12; // mutable i32
     mutable = 21;
 
-    // but it's type can be changed
+    // but it's type can't be changed
     // mutable = true
 
     // literals and operators
